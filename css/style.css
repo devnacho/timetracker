@@ -25,3 +25,7 @@
 .recent-tasks table tbody tr td{
   border-top:none;
 }
+
+.new-measurement form #submit{
+  visibility: hidden;
+}

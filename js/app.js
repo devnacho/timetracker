@@ -1,11 +1,22 @@
 (function(){
   var app = angular.module('timetracker', ['timeFilter']);
 
-  app.controller('RecentTasksController', function(){
+  app.controller('TrackingController', function(){
     this.tasks = tasks;
   });
 
+  app.controller('RecentTasksController', function(){
 
+  });
+
+  app.controller('NewMeasurementController', function(){
+    this.newTask = {};
+
+    this.addTask = function(tasks) {
+      tasks.push(this.newTask);
+      this.newTask = {};
+    };
+  });
 
   var tasks = [
     {

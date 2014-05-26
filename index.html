@@ -18,33 +18,45 @@
     </div>
     <div class="container">
       <div id="main-region">
-
-        <div ng-controller="RecentTasksController as recent_tasks" class="recent-tasks">
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <h2>Recent Tasks</h2>
-              <table class="table">
-                <thead>
-                  <th>Task</th>
-                  <th>Last Measurement</th>
-                  <th>Total Time</th>
-                  <th></th>
-                  <th></th>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="task in recent_tasks.tasks">
-                    <td><strong>{{task.name}}</strong></td>
-                    <td>{{task.measurements[task.measurements.length-1].time_elapsed | duration }}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+        <div ng-controller="TrackingController as tracking" class="tracking">
+          <div ng-controller="NewMeasurementController as newMeasurementCtrl" class="new-measurement">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <form ng-submit="newMeasurementCtrl.addTask(tracking.tasks)">
+                  <input id="new-measurement-input" ng-model="newMeasurementCtrl.newTask.name" type="text" class="form-control input-lg" placeholder="Enter the name of the task and press enter">
+                  <input type="submit" id="submit" value="Submit" />
+                </form>
+              </div>
             </div>
           </div>
-        </div>
 
+          <div ng-controller="RecentTasksController as recentTasksCtrl" class="recent-tasks">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <h2>Recent Tasks</h2>
+                <table class="table">
+                  <thead>
+                    <th>Task</th>
+                    <th>Last Measurement</th>
+                    <th>Total Time</th>
+                    <th></th>
+                    <th></th>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="task in tracking.tasks">
+                      <td><strong>{{task.name}}</strong></td>
+                      <td>{{task.measurements[task.measurements.length-1].time_elapsed | duration }}</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
     <div id="footer">

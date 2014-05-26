@@ -1,4 +1,3 @@
-//Move to app/js/filter.js
 angular.module('timeFilter', []).filter('duration', function() {
   return function(duration) {
     var milliseconds = parseInt((duration%1000)/100)
