@@ -1,0 +1,27 @@
+.current-measurement{
+  margin-bottom:100px;
+  text-align: center;
+}
+.current-measurement h1{
+  font-weight: normal;
+}
+.current-measurement h2#clock{
+  font-size: 100px;
+  font-weight: 100;
+  margin-bottom: 30px;
+}
+
+.current-measurement #clock-button .active{
+  background:red;
+}
+
+.recent-tasks{
+  margin-top:80px;
+}
+.recent-tasks h2{
+  text-align: center;
+}
+
+.recent-tasks table tbody tr td{
+  border-top:none;
+}
