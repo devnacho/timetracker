@@ -1,5 +1,8 @@
 angular.module('timeFilter', []).filter('duration', function() {
   return function(duration) {
+    if(duration == null){
+        return ""
+    }
     var milliseconds = parseInt((duration%1000)/100)
         , seconds = parseInt((duration/1000)%60)
         , minutes = parseInt((duration/(1000*60))%60)
