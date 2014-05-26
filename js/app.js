@@ -12,7 +12,7 @@
   app.controller('NewMeasurementController', function(){
     this.newTask = {};
 
-    this.addTask = function(tasks) {
+    this.startMeasuring = function(tasks) {
       tasks.push(this.newTask);
       this.newTask = {};
     };

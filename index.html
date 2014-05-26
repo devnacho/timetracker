@@ -22,7 +22,7 @@
           <div ng-controller="NewMeasurementController as newMeasurementCtrl" class="new-measurement">
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
-                <form ng-submit="newMeasurementCtrl.addTask(tracking.tasks)">
+                <form ng-submit="newMeasurementCtrl.startMeasuring(tracking.tasks)">
                   <input id="new-measurement-input" ng-model="newMeasurementCtrl.newTask.name" type="text" class="form-control input-lg" placeholder="Enter the name of the task and press enter">
                   <input type="submit" id="submit" value="Submit" />
                 </form>
@@ -55,7 +55,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
