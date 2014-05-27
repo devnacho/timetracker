@@ -11,8 +11,6 @@
     <title>Dreepi Time Tracker</title>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" media="screen, projection">
-    <script src="js/vendor/jquery-1.11.0.js"></script>
-    <script src="js/vendor/jquery.runner.js"></script>
   </head>
 
   <body>
@@ -28,11 +26,11 @@
                 <h1>Current:
                   <strong>{{currentTask.name}}</strong>
                 </h1>
-                <h2 id="clock">
-                  {{currentMeasurement.time_elapsed}}
-                </h1>
-                <button id="start-clock-button" class="clock-button btn btn-success btn-lg btn-block">Start</button>
-                <button id="stop-clock-button" class="clock-button hidden btn btn-danger btn-lg btn-block">Pause</button>
+                <div ng-controller="StopwatchCtrl as stopwatch">
+                  <h2 id="clock">{{currentMeasurement.time_elapsed | duration}}</h2>
+                  <button ng-click='start()' ng-hide="running == true" id="start-clock-button" class="clock-button btn btn-success btn-lg btn-block">Start</button>
+                  <button ng-click='stop()' ng-hide="running == false" id="stop-clock-button" class="clock-button btn btn-danger btn-lg btn-block">Pause</button>
+                </div>
               </div>
             </div>
           </div>

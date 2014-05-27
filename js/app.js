@@ -5,6 +5,7 @@
     $scope.tasks = tasks;
     $scope.newTask = { measurements: []};
 
+
     $scope.setCurrentTask = function(task) {
       //Check task existence & add it only if it doesn't exists
       var addToArray=true;
@@ -27,6 +28,26 @@
       $scope.currentTask.measurements.push($scope.currentMeasurement);
     };
   });
+
+  app.controller('StopwatchCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+    $scope.running = false;
+
+    function countdown() {
+      $scope.currentMeasurement.time_elapsed++;
+      $scope.timeout = $timeout(countdown, 1000);
+    }
+
+    $scope.start = function() {
+      $scope.running = true;
+      countdown();
+    };
+
+    $scope.stop = function() {
+      $scope.running = false;
+      $timeout.cancel($scope.timeout);
+    };
+  }]);
+
 
 
   var tasks = [
