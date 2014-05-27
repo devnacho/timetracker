@@ -19,11 +19,13 @@
       if (addToArray === true){
         $scope.tasks.push(task);
       }
-
       //Set CurrentTask
       $scope.currentTask = task;
       //Clear new task
       $scope.newTask = {};
+      //Create & Add new measurement
+      $scope.currentMeasurement = {time_elapsed: 0}
+      $scope.currentTask.measurements.push($scope.currentMeasurement);
     };
   });
 

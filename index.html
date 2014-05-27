@@ -26,7 +26,9 @@
                 <h1>Current:
                   <strong>{{currentTask.name}}</strong>
                 </h1>
-                <h2 id="clock"></h1>
+                <h2 id="clock">
+                  {{currentMeasurement.time_elapsed}}
+                </h1>
                 <button id="start-clock-button" class="clock-button btn btn-success btn-lg btn-block">Start</button>
                 <button id="stop-clock-button" class="clock-button hidden btn btn-danger btn-lg btn-block">Pause</button>
               </div>
