@@ -4,7 +4,6 @@
   app.controller('TrackingController', function($scope){
     $scope.tasks = tasks;
     $scope.newTask = { measurements: []};
-    $scope.currentTask = {};
 
     $scope.setCurrentTask = function(task) {
       //Check task existence & add it only if it doesn't exists
