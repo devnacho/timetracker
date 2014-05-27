@@ -27,14 +27,14 @@
       $scope.currentMeasurement = {time_elapsed: 0, start_date: new Date().getTime()}
       $scope.currentTask.measurements.push($scope.currentMeasurement);
       //Start Stopwatch
-      $scope.$broadcast ('startStopwatch');
+      $scope.$broadcast ('stopwatch:start');
     };
   });
 
   app.controller('StopwatchCtrl', ['$scope', '$timeout', function($scope, $timeout) {
     $scope.running = false;
 
-    $scope.$on('startStopwatch', function(e) {
+    $scope.$on('stopwatch:start', function(e) {
         $scope.start();
     });
 
