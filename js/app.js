@@ -3,19 +3,22 @@
 
   app.controller('TrackingController', function(){
     this.tasks = tasks;
-  });
-
-  app.controller('RecentTasksController', function(){
-
-  });
-
-  app.controller('NewMeasurementController', function(){
     this.newTask = {};
+    this.currentTask = {};
 
-    this.startMeasuring = function(tasks) {
-      tasks.push(this.newTask);
+    this.setCurrentTask = function(task) {
+      //Add new task
+      this.tasks.push(task);
+      //Set CurrentTask
+      this.currentTask = this.newTask;
+      //Clear new task
       this.newTask = {};
     };
+
+  });
+
+
+  app.controller('NewMeasurementController', function(){
   });
 
   var tasks = [

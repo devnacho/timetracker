@@ -29,6 +29,6 @@ body{
   border-top:none;
 }
 
-.new-measurement form #submit{
+form #new-measurement-submit{
   visibility: hidden;
 }
