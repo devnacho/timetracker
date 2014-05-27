@@ -7,10 +7,21 @@
     $scope.currentTask = {};
 
     $scope.setCurrentTask = function(task) {
-      //Add new task
-      $scope.tasks.push(task);
+      //Check task existence & add it only if it doesn't exists
+      var addToArray=true;
+      for(var i=0; i < $scope.tasks.length; i++){
+          if ($scope.tasks[i].name === task.name) {
+              task = $scope.tasks[i];
+              addToArray = false;
+              break;
+          }
+      }
+      if (addToArray === true){
+        $scope.tasks.push(task);
+      }
+
       //Set CurrentTask
-      $scope.currentTask = $scope.newTask;
+      $scope.currentTask = task;
       //Clear new task
       $scope.newTask = {};
     };

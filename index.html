@@ -62,7 +62,7 @@
                       <td>{{task.measurements[task.measurements.length-1].time_elapsed | duration }}</td>
                       <td></td>
                       <td><a href="#">Edit</a></td>
-                      <td><a href="#" class="start-again">Start Again</a></td>
+                      <td><a ng-click="setCurrentTask(task)" class="start-again">Start Again</a></td>
                     </tr>
                   </tbody>
                 </table>
