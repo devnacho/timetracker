@@ -35,7 +35,9 @@
     $scope.running = false;
 
     $scope.$on('stopwatch:start', function(e) {
-        $scope.start();
+      //First stop the current and start again
+      $scope.stop();
+      $scope.start();
     });
 
     function countdown() {
