@@ -24,13 +24,19 @@
       //Clear newTask
       $scope.newTask = { measurements: []};
       //Create & Add new measurement
-      $scope.currentMeasurement = {time_elapsed: 0}
+      $scope.currentMeasurement = {time_elapsed: 0, start_date: new Date().getTime()}
       $scope.currentTask.measurements.push($scope.currentMeasurement);
+      //Start Stopwatch
+      $scope.$broadcast ('startStopwatch');
     };
   });
 
   app.controller('StopwatchCtrl', ['$scope', '$timeout', function($scope, $timeout) {
     $scope.running = false;
+
+    $scope.$on('startStopwatch', function(e) {
+        $scope.start();
+    });
 
     function countdown() {
       $scope.currentMeasurement.time_elapsed++;
@@ -45,6 +51,7 @@
     $scope.stop = function() {
       $scope.running = false;
       $timeout.cancel($scope.timeout);
+      $scope.currentMeasurement.end_date = new Date().getTime();
     };
   }]);
 
