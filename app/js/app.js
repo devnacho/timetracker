@@ -41,6 +41,16 @@
       //Start Stopwatch
       $scope.$broadcast ('stopwatch:start');
     };
+
+    $scope.totalTime = function (task) {
+      var total_time = 0;
+      for(var i = 0; i < task.measurements.length; i++){
+          var measurement = task.measurements[i];
+          total_time += measurement.time_elapsed;
+      }
+      return total_time;
+    };
+
   });
 
   app.controller('StopwatchCtrl', ['$scope', '$timeout', function($scope, $timeout) {

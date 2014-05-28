@@ -68,7 +68,7 @@
                         </form>
                       </td>
                       <td>{{task.measurements[task.measurements.length-1].time_elapsed | duration }}</td>
-                      <td></td>
+                      <td>{{totalTime(task) | duration}}</td>
                       <td><a ng-click="setCurrentTask(task)" class="btn btn-default btn-s">Start Again</a></td>
                     </tr>
                   </tbody>
