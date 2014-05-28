@@ -56,7 +56,6 @@
                     <th>Last Measurement</th>
                     <th>Total Time</th>
                     <th></th>
-                    <th></th>
                   </thead>
                   <tbody>
                     <tr ng-repeat="task in tasks">
@@ -69,7 +68,7 @@
                       </td>
                       <td>{{task.measurements[task.measurements.length-1].time_elapsed | duration }}</td>
                       <td>{{totalTime(task) | duration}}</td>
-                      <td><a ng-click="setCurrentTask(task)" class="btn btn-default btn-s">Start Again</a></td>
+                      <td><a ng-click="setCurrentTask(task)" class="btn btn-default btn-s btn-info pull-right">Start Again</a></td>
                     </tr>
                   </tbody>
                 </table>
