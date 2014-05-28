@@ -1,10 +1,22 @@
 (function(){
-  var app = angular.module('timetracker', ['timeFilter']);
+  var app = angular.module('timetracker', ['timeFilter', 'LocalStorageModule']);
 
-  app.controller('TrackingController', function($scope){
-    $scope.tasks = tasks;
+  app.controller('TrackingController', function($scope, persistService){
+
     $scope.newTask = { measurements: []};
 
+    //retrieve tasks
+    if( persistService.getTasks() !== null ){
+      $scope.tasks = persistService.getTasks();
+    }else{
+      $scope.tasks = [];
+    }
+
+    //Persist Tasks
+    $scope.$on('tracking:persist', function(e) {
+      console.log('Saving changes...');
+      persistService.saveTasks($scope.tasks);
+    });
 
     $scope.setCurrentTask = function(task) {
       //Check task existence & add it only if it doesn't exists
@@ -48,17 +60,28 @@
     $scope.start = function() {
       $scope.running = true;
       countdown();
+      $scope.$emit ('tracking:persist');
     };
 
     $scope.stop = function() {
       $scope.running = false;
       $timeout.cancel($scope.timeout);
       $scope.currentMeasurement.end_date = new Date().getTime();
+      $scope.$emit ('tracking:persist');
     };
   }]);
 
+  app.service('persistService', function(localStorageService) {
+      this.clearTasks = function(){
+        localStorageService.clearAll();
+      }
+      this.saveTasks = function(tasks) {
+        localStorageService.add('timetrackerTasks', tasks);
+      };
 
-
-  var tasks = [];
+      this.getTasks = function() {
+        return (localStorageService.get('timetrackerTasks'));
+      };
+  });
 
 })();
