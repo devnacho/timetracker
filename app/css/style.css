@@ -1,5 +1,4 @@
 body{
-  margin-top:50px;
   background: #EAEBF0;
 }
 
@@ -41,4 +40,14 @@ body{
 
 form #new-measurement-submit{
   visibility: hidden;
+}
+
+
+nav.main-navigation{
+  margin:20px 0;
+  text-align:right;
+}
+nav.main-navigation a{
+  margin-left:20px;
+  color: #4A5763;
 }
