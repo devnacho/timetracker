@@ -62,11 +62,8 @@
     };
 
     $scope.totalTime = function (task) {
-      var total_time = 0;
-      for(var i = 0; i < task.measurements.length; i++){
-          var measurement = task.measurements[i];
-          total_time += measurement.time_elapsed;
-      }
+      var total_time = _.reduce(task.measurements, function(memo, num){ return memo + num.time_elapsed; }, 0);
+
       return total_time;
     };
 
