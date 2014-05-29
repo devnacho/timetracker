@@ -18,70 +18,14 @@
     </div>
     <div class="container">
       <div id="main-region">
-        <div ng-controller="TrackingController as tracking" class="tracking">
-          <!-- Current Measurement -->
-          <div class="current-measurement" ng-hide="currentTask == null">
-            <div class="row">
-              <div class="col-md-6 col-md-offset-3">
-                <h1>Current:
-                  <strong>{{currentTask.name}}</strong>
-                </h1>
-                <div ng-controller="StopwatchCtrl as stopwatch">
-                  <h2 id="clock">{{currentMeasurement.time_elapsed | duration}}</h2>
-                  <button ng-click='start()' ng-hide="running == true" id="start-clock-button" class="clock-button btn btn-success btn-lg btn-block">Start</button>
-                  <button ng-click='stop()' ng-hide="running == false" id="stop-clock-button" class="clock-button btn btn-danger btn-lg btn-block">Pause</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- New Measurement -->
-          <div class="new-measurement">
-            <div class="row">
-              <div class="col-md-6 col-md-offset-3">
-                <form ng-submit="setCurrentTask(newTask)">
-                  <input id="new-measurement-input" ng-model="newTask.name" type="text" class="form-control input-lg" placeholder="Enter the name of the task and press enter">
-                  <input type="submit" id="new-measurement-submit" value="Submit" />
-                </form>
-              </div>
-            </div>
-          </div>
-          <!-- Recent Tasks -->
-          <div class="recent-tasks" ng-hide="tasks.length == 0">
-            <div class="row">
-              <div class="col-md-8 col-md-offset-2">
-                <h3>Recent Tasks</h3>
-                <table class="table">
-                  <thead>
-                    <th class="col-md-4">Task</th>
-                    <th>Last Measurement</th>
-                    <th>Total Time</th>
-                    <th></th>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="task in tasks">
-                      <td>
-                        <strong ng-hide="editing" ng-click="editing = true">{{task.name}}</strong>
-                        <form ng-show="editing" ng-submit="editing = false" class="form-inline" style="margin:0;">
-                          <input type="text" ng-model="task.name" placeholder="Name of the task" class="form-control" ng-required/>
-                          <button class="btn btn-success" type="submit">OK</button>
-                        </form>
-                      </td>
-                      <td>{{task.measurements[task.measurements.length-1].time_elapsed | duration }}</td>
-                      <td>{{totalTime(task) | duration}}</td>
-                      <td><a ng-click="setCurrentTask(task)" class="btn btn-default btn-s btn-info pull-right">Start Again</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div ui-view></div>
       </div>
     </div>
     <div id="footer">
     </div>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script type="text/javascript"  src="js/app.js"></script>
     <script type="text/javascript"  src="js/filters.js"></script>
   </body>

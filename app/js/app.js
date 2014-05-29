@@ -1,5 +1,24 @@
 (function(){
-  var app = angular.module('timetracker', ['timeFilter', 'LocalStorageModule']);
+  var app = angular.module('timetracker', ['timeFilter', 'LocalStorageModule', 'ui.router']);
+
+  app.config(function($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise('/tracking');
+
+    $stateProvider
+        .state('tracking', {
+            url: '/tracking',
+            templateUrl: 'partials/partial-tracking.html',
+            controller: 'TrackingController'
+        })
+
+        .state('reporting', {
+            url: '/reporting',
+            templateUrl: 'partials/partial-reporting.html'
+        });
+
+  });
+
 
   app.controller('TrackingController', function($scope, persistService){
 
