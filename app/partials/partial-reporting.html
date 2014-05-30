@@ -4,8 +4,10 @@
       <div ng-repeat="task in tasks">
         <h3>{{task.name}}</h3>
         <h4>Total Time: {{totalTime(task) | duration}}</h4>
-        <div ng-repeat="measurement in task.measurements |  limitTo: 5 ">
+        <div ng-repeat="measurement in task.measurements |  orderBy:'start_date':true | limitTo:5 ">
           <span><strong>{{measurement.start_date | date : 'shortTime'}}</strong></span>
+          to
+          <span><strong>{{measurement.end_date | date : 'shortTime'}}</strong></span>
           &nbsp;
           <span>{{measurement.time_elapsed | duration}}</span>
         </div>

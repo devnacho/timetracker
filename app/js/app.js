@@ -50,6 +50,8 @@
       if (addToArray === true){
         $scope.tasks.push(task);
       }
+      //First stop current task and save its state
+      $scope.$broadcast ('stopwatch:stop');
       //Set CurrentTask
       $scope.currentTask = task;
       //Clear newTask
@@ -71,9 +73,11 @@
     $scope.running = false;
 
     $scope.$on('stopwatch:start', function(e) {
-      //First stop the current and start again
-      $scope.stop();
       $scope.start();
+    });
+
+    $scope.$on('stopwatch:stop', function(e) {
+      $scope.stop();
     });
 
     function countdown() {
