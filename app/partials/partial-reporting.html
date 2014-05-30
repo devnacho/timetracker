@@ -1,1 +1,15 @@
-<h2> Reporting </h2>
+<div ng-controller="ReportingController as reporting" class="reporting">
+  <div class="row">
+    <div class="col-md-12">
+      <div ng-repeat="task in tasks"5>
+        <h3>{{task.name}}</h3>
+        <div ng-repeat="measurement in task.measurements |  limitTo: 5 ">
+          <span><strong>{{measurement.start_date | date : 'shortTime'}}</strong></span>
+          &nbsp;
+          <span>{{measurement.time_elapsed | duration}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

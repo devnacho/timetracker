@@ -97,6 +97,16 @@
     };
   }]);
 
+  app.controller('ReportingController', function($scope, persistService){
+    //retrieve tasks
+    if( persistService.getTasks() !== null ){
+      $scope.tasks = persistService.getTasks();
+    }else{
+      $scope.tasks = [];
+    }
+
+  });
+
   app.service('persistService', function(localStorageService) {
       this.clearTasks = function(){
         localStorageService.clearAll();
