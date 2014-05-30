@@ -1,8 +1,9 @@
 <div ng-controller="ReportingController as reporting" class="reporting">
   <div class="row">
     <div class="col-md-12">
-      <div ng-repeat="task in tasks"5>
+      <div ng-repeat="task in tasks">
         <h3>{{task.name}}</h3>
+        <h4>Total Time: {{totalTime(task) | duration}}</h4>
         <div ng-repeat="measurement in task.measurements |  limitTo: 5 ">
           <span><strong>{{measurement.start_date | date : 'shortTime'}}</strong></span>
           &nbsp;

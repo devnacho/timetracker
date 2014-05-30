@@ -20,11 +20,11 @@
   });
 
 
-  app.controller('TrackingController', function($scope, persistService){
+  app.controller('TrackingController', function($scope, persistService, reportService){
 
     $scope.newTask = { measurements: []};
-
     //retrieve tasks
+
     if( persistService.getTasks() !== null ){
       $scope.tasks = persistService.getTasks();
     }else{
@@ -33,7 +33,7 @@
 
     //Persist Tasks
     $scope.$on('tracking:persist', function(e) {
-      console.log('Saving changes...');
+      console.log('Saving changes...' + $scope.tasks);
       persistService.saveTasks($scope.tasks);
     });
 
@@ -62,9 +62,7 @@
     };
 
     $scope.totalTime = function (task) {
-      var total_time = _.reduce(task.measurements, function(memo, num){ return memo + num.time_elapsed; }, 0);
-
-      return total_time;
+      return reportService.totalTime(task);
     };
 
   });
@@ -97,7 +95,7 @@
     };
   }]);
 
-  app.controller('ReportingController', function($scope, persistService){
+  app.controller('ReportingController', function($scope, persistService, reportService){
     //retrieve tasks
     if( persistService.getTasks() !== null ){
       $scope.tasks = persistService.getTasks();
@@ -105,6 +103,18 @@
       $scope.tasks = [];
     }
 
+    $scope.totalTime = function (task) {
+      return reportService.totalTime(task);
+    };
+
+  });
+
+  app.service('reportService', function() {
+    this.totalTime = function (task) {
+      var total_time = _.reduce(task.measurements, function(memo, num){ return memo + num.time_elapsed; }, 0);
+
+      return total_time;
+    };
   });
 
   app.service('persistService', function(localStorageService) {
