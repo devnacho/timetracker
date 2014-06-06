@@ -63,8 +63,8 @@
       $scope.$broadcast ('stopwatch:start');
     };
 
-    $scope.totalTime = function (task) {
-      return reportService.totalTime(task);
+    $scope.totalTimeToday = function (task) {
+      return reportService.totalTimeToday(task);
     };
 
   });
@@ -114,6 +114,16 @@
   });
 
   app.service('reportService', function() {
+    this.totalTimeToday = function (task) {
+      var today =  new Date();
+      today.setHours(0,0,0,0);
+      //Rejects dates before today's midnight
+      var today_measurements = _.reject(task.measurements, function(measurement){ return measurement.start_date <= today; });
+      var total_time_today = _.reduce(today_measurements, function(memo, num){ return memo + num.time_elapsed; }, 0);
+
+      return total_time_today;
+    };
+
     this.totalTime = function (task) {
       var total_time = _.reduce(task.measurements, function(memo, num){ return memo + num.time_elapsed; }, 0);
 
