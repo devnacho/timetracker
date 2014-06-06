@@ -111,6 +111,10 @@
       return reportService.totalTime(task);
     };
 
+    $scope.totalTimeToday = function (task) {
+      return reportService.totalTimeToday(task);
+    };
+
   });
 
   app.service('reportService', function() {
