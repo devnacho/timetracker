@@ -13,6 +13,14 @@
     </div>
     <div class="col-md-8 current-task">
       <h1>{{currentTask.name}}</h1>
+      <div ng-repeat="(key, items) in measurementsByDate">
+        <h3>{{key | date : 'mediumDate' }}</h3>
+        <div ng-repeat="item in items">
+          From
+          <i>{{item.start_date | date : 'shortTime'}}</i>
+          to <i>{{item.end_date | date : 'shortTime'}}</i>
+        </div>
+      </div>
     </div>
   </div>
 </div>

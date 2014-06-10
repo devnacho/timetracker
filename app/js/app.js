@@ -132,9 +132,11 @@
       $scope.tasks = [];
       $scope.currentTask = {};
     }
+    $scope.measurementsByDate = _.groupBy($scope.currentTask.measurements, function(measurement){ return moment(measurement.start_date).format("YYYY-MM-DD"); });
 
     $scope.setCurrentTask = function(task) {
       $scope.currentTask = task;
+      $scope.measurementsByDate = _.groupBy($scope.currentTask.measurements, function(measurement){ return moment(measurement.start_date).format("YYYY-MM-DD"); });
     };
 
     $scope.totalTime = function (task) {
