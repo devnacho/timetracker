@@ -15,6 +15,12 @@
         .state('reporting', {
             url: '/reporting',
             templateUrl: 'partials/partial-reporting.html'
+        })
+
+        .state('timesheet', {
+            url: '/timesheet',
+            templateUrl: 'partials/partial-timesheet.html',
+            controller: 'TimesheetController'
         });
 
   });
@@ -106,6 +112,30 @@
     }else{
       $scope.tasks = [];
     }
+
+    $scope.totalTime = function (task) {
+      return reportService.totalTime(task);
+    };
+
+    $scope.totalTimeToday = function (task) {
+      return reportService.totalTimeToday(task);
+    };
+
+  });
+
+  app.controller('TimesheetController', function($scope, persistService, reportService){
+    //retrieve tasks
+    if( persistService.getTasks() !== null ){
+      $scope.tasks = persistService.getTasks();
+      $scope.currentTask = _.first($scope.tasks);
+    }else{
+      $scope.tasks = [];
+      $scope.currentTask = {};
+    }
+
+    $scope.setCurrentTask = function(task) {
+      $scope.currentTask = task;
+    };
 
     $scope.totalTime = function (task) {
       return reportService.totalTime(task);

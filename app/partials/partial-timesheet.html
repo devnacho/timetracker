@@ -1,0 +1,18 @@
+<div ng-controller="TimesheetController as timesheet" class="timesheet">
+  <div class="row">
+    <div class="col-md-4 sidebar">
+      <div ng-repeat="task in tasks">
+        <div ng-click="setCurrentTask(task)" class="task">
+          <h3>{{task.name}}</h3>
+          <span><strong>Total Time:</strong> {{totalTime(task) | duration}}</span>
+          <br/>
+          <span><strong>Time Today:</strong> {{totalTimeToday(task) | duration}}</span>
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 current-task">
+      <h1>{{currentTask.name}}</h1>
+    </div>
+  </div>
+</div>

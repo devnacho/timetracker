@@ -51,3 +51,21 @@ nav.main-navigation a{
   margin-left:20px;
   color: #4A5763;
 }
+
+.timesheet .sidebar{
+  margin-top:80px;
+}
+
+.timesheet .task{
+  cursor:pointer;
+}
+
+.timesheet .task span{
+  color:#777;
+  font-size:11px;
+}
+
+
+.timesheet .current-task{
+  border-left:1px solid #eee;
+}
