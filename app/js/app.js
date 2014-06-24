@@ -147,6 +147,12 @@
       return reportService.totalTimeToday(task);
     };
 
+    $scope.removeTask = function (task) {
+      var index = _.indexOf($scope.tasks, task);
+      $scope.tasks.splice(index,1);
+      persistService.saveTasks($scope.tasks);
+    };
+
   });
 
   app.service('reportService', function() {

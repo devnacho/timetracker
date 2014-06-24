@@ -7,6 +7,8 @@
           <span><strong>Total Time:</strong> {{totalTime(task) | duration}}</span>
           <br/>
           <span><strong>Time Today:</strong> {{totalTimeToday(task) | duration}}</span>
+          <br/>
+          <span ng-click="removeTask(task)" class="glyphicon glyphicon-trash pull-right"></span>
           <hr>
         </div>
       </div>
