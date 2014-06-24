@@ -150,6 +150,7 @@
     $scope.removeTask = function (task) {
       var index = _.indexOf($scope.tasks, task);
       $scope.tasks.splice(index,1);
+      $scope.setCurrentTask(_.first($scope.tasks));
       persistService.saveTasks($scope.tasks);
     };
 
