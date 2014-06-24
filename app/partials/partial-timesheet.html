@@ -8,7 +8,12 @@
           <br/>
           <span><strong>Time Today:</strong> {{totalTimeToday(task) | duration}}</span>
           <br/>
-          <span ng-click="removeTask(task)" class="glyphicon glyphicon-trash pull-right"></span>
+          <span ng-model="toRemove" ng-click="toRemove=true" ng-hide="toRemove" class="glyphicon glyphicon-trash pull-right"></span>
+          <div class="btn-toolbar">
+            <a ng-show="toRemove" ng-click="toRemove=false" class="btn btn-default btn-xs pull-right">Cancel</a>
+            <a ng-show="toRemove" ng-click="removeTask(task)" class="btn btn-danger btn-xs pull-right">Remove</a>
+          </div>
+          <br/>
           <hr>
         </div>
       </div>
