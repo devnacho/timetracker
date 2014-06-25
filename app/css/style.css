@@ -69,3 +69,48 @@ nav.main-navigation a{
 .timesheet .current-task{
   border-left:1px solid #eee;
 }
+
+.timesheet .current-task .title{
+  margin-bottom: 40px;
+}
+
+.timesheet .current-task dl{
+  text-align: center;
+}
+
+.timesheet .current-task dt{
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.timesheet .current-task dd{
+  font-size:11px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+
+.timesheet .current-task dd.icon{
+  font-size:20px;
+  color: #A9AEB6;
+}
+
+.timesheet .current-task .measurement-dates{
+  margin-bottom: 40px;
+}
+
+.timesheet .current-task .measurement-dates .measurements{
+  text-align: center;
+}
+
+.timesheet .current-task .measurement-dates .measurements .measurement{
+  margin-bottom: 5px;
+}
+
+
+.timesheet .current-task .measurement-dates .measurements .measurement .time-period{
+  font-size:9px;
+  color: #A9AEB6;
+}

@@ -26,14 +26,47 @@
           <button class="btn btn-success btn-lg" type="submit">OK</button>
         </form>
       </div>
-      <div ng-repeat="(key, items) in measurementsByDate">
-        <h3>{{key | date : 'mediumDate' }}</h3>
-        <div ng-repeat="item in items">
-          From
-          <i>{{item.start_date | date : 'shortTime'}}</i>
-          to <i>{{item.end_date | date : 'shortTime'}}</i>
+      <div ng-repeat="(key, items) in measurementsByDate" class="measurement-dates">
+        <div class="row">
+          <div class="col-md-2">
+            <dl>
+              <dt>{{key | date : 'd' }}</dt>
+              <dd>{{key | date : 'MMM y' }}</dd>
+              <dd class="icon"><span class="glyphicon glyphicon-calendar"></dd>
+            </dl>
+          </div>
+          <!--
+          <div class="col-md-2">
+            <dl>
+              <dt>5</dt>
+              <dd>Hours</dd>
+              <dd class="icon"><span class="glyphicon glyphicon-time"></dd>
+            </dl>
+          </div>
+          -->
+          <div class="col-md-6 col-md-offset-1">
+            <div ng-repeat="item in items" class="measurements">
+              <div class="measurement">
+                <div class="row">
+                  <div class="col-md-4">
+                    <strong>{{item.start_date | date : 'h:mm'}}</strong>
+                    <span class="time-period">{{item.start_date | date : 'a'}}</span>
+                  </div>
+                  <div class="col-md-1">
+                    <span class="glyphicon glyphicon-chevron-right">
+                  </div>
+                  <div class="col-md-4">
+                    <strong>{{item.end_date | date : 'h:mm'}}</strong>
+                    <span class="time-period">{{item.end_date | date : 'a'}}</span>
+                  </div>
+                  <div class="col-md-3">
+                    <!--Edit/Remove/etc-->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
