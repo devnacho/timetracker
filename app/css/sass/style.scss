@@ -1,0 +1,102 @@
+body{
+  background: #EAEBF0;
+}
+
+#main-region{
+  border: 1px solid #C5CDEC;
+  padding: 40px;
+  background:#ffffff;
+}
+.current-measurement{
+  margin-bottom:30px;
+  text-align: center;
+  h1{
+    font-weight: normal;
+  }
+  h2#clock{
+    font-size: 90px;
+    font-weight: 100;
+    margin-bottom: 30px;
+  }
+  #clock-button .active{
+    background:red;
+  }
+}
+
+
+.new-measurement{
+  margin-top:30px;
+}
+
+.recent-tasks{
+  h3{
+    text-align: center;
+  }
+  table tbody tr td{
+    border-top:none;
+  }
+}
+
+form #new-measurement-submit{
+  visibility: hidden;
+}
+
+
+nav.main-navigation{
+  margin:20px 0;
+  text-align:right;
+  a{
+    margin-left:20px;
+    color: #4A5763;
+  }
+}
+.timesheet{
+  .sidebar{
+    margin-top:80px;
+  }
+  .task{
+    cursor:pointer;
+    span{
+      color: #A9AEB6;
+      font-size:11px;
+    }
+
+  }
+  .current-task{
+    border-left:1px solid #eee;
+    .title{
+      margin-bottom: 40px;
+    }
+    dl{
+      text-align: center;
+      dt{
+        font-size: 40px;
+        line-height: 1;
+        margin-bottom: 5px;
+      }
+      dd{
+        font-size:11px;
+        text-transform: uppercase;
+        color: #aaa;
+        margin-bottom: 5px;
+        &.icon{
+          font-size:20px;
+          color: #A9AEB6;
+        }
+      }
+    }
+    .measurement-dates{
+      margin-bottom: 40px;
+      .measurements{
+        text-align: center;
+        .measurement{
+          margin-bottom: 5px;
+          .time-period{
+            font-size:9px;
+            color: #A9AEB6;
+          }
+        }
+      }
+    }
+  }
+}

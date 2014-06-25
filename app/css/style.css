@@ -1,116 +1,72 @@
-body{
-  background: #EAEBF0;
-}
+body {
+  background: #EAEBF0; }
 
-#main-region{
+#main-region {
   border: 1px solid #C5CDEC;
   padding: 40px;
-  background:#ffffff;
-}
-.current-measurement{
-  margin-bottom:30px;
-  text-align: center;
-}
-.current-measurement h1{
-  font-weight: normal;
-}
-.current-measurement h2#clock{
-  font-size: 90px;
-  font-weight: 100;
+  background: #ffffff; }
+
+.current-measurement {
   margin-bottom: 30px;
-}
+  text-align: center; }
+  .current-measurement h1 {
+    font-weight: normal; }
+  .current-measurement h2#clock {
+    font-size: 90px;
+    font-weight: 100;
+    margin-bottom: 30px; }
+  .current-measurement #clock-button .active {
+    background: red; }
 
-.current-measurement #clock-button .active{
-  background:red;
-}
+.new-measurement {
+  margin-top: 30px; }
 
-.new-measurement{
-  margin-top:30px;
-}
+.recent-tasks h3 {
+  text-align: center; }
+.recent-tasks table tbody tr td {
+  border-top: none; }
 
-.recent-tasks{
-}
-.recent-tasks h3{
-  text-align: center;
-}
+form #new-measurement-submit {
+  visibility: hidden; }
 
-.recent-tasks table tbody tr td{
-  border-top:none;
-}
+nav.main-navigation {
+  margin: 20px 0;
+  text-align: right; }
+  nav.main-navigation a {
+    margin-left: 20px;
+    color: #4A5763; }
 
-form #new-measurement-submit{
-  visibility: hidden;
-}
-
-
-nav.main-navigation{
-  margin:20px 0;
-  text-align:right;
-}
-nav.main-navigation a{
-  margin-left:20px;
-  color: #4A5763;
-}
-
-.timesheet .sidebar{
-  margin-top:80px;
-}
-
-.timesheet .task{
-  cursor:pointer;
-}
-
-.timesheet .task span{
-  color: #A9AEB6;
-  font-size:11px;
-}
-
-
-.timesheet .current-task{
-  border-left:1px solid #eee;
-}
-
-.timesheet .current-task .title{
-  margin-bottom: 40px;
-}
-
-.timesheet .current-task dl{
-  text-align: center;
-}
-
-.timesheet .current-task dt{
-  font-size: 40px;
-  line-height: 1;
-  margin-bottom: 5px;
-}
-
-.timesheet .current-task dd{
-  font-size:11px;
-  text-transform: uppercase;
-  color: #aaa;
-  margin-bottom: 5px;
-}
-
-
-.timesheet .current-task dd.icon{
-  font-size:20px;
-  color: #A9AEB6;
-}
-
-.timesheet .current-task .measurement-dates{
-  margin-bottom: 40px;
-}
-
-.timesheet .current-task .measurement-dates .measurements{
-  text-align: center;
-}
-
-.timesheet .current-task .measurement-dates .measurements .measurement{
-  margin-bottom: 5px;
-}
-
-
-.timesheet .current-task .measurement-dates .measurements .measurement .time-period{
-  font-size:9px;
-  color: #A9AEB6;
-}
+.timesheet .sidebar {
+  margin-top: 80px; }
+.timesheet .task {
+  cursor: pointer; }
+  .timesheet .task span {
+    color: #A9AEB6;
+    font-size: 11px; }
+.timesheet .current-task {
+  border-left: 1px solid #eee; }
+  .timesheet .current-task .title {
+    margin-bottom: 40px; }
+  .timesheet .current-task dl {
+    text-align: center; }
+    .timesheet .current-task dl dt {
+      font-size: 40px;
+      line-height: 1;
+      margin-bottom: 5px; }
+    .timesheet .current-task dl dd {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 5px; }
+      .timesheet .current-task dl dd.icon {
+        font-size: 20px;
+        color: #A9AEB6; }
+  .timesheet .current-task .measurement-dates {
+    margin-bottom: 40px; }
+    .timesheet .current-task .measurement-dates .measurements {
+      text-align: center; }
+      .timesheet .current-task .measurement-dates .measurements .measurement {
+        margin-bottom: 5px; }
+        .timesheet .current-task .measurement-dates .measurements .measurement .time-period {
+          font-size: 9px;
+          color: #A9AEB6; }
