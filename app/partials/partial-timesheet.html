@@ -28,13 +28,14 @@
       </div>
       <div ng-repeat="(key, items) in measurementsByDate" class="measurement-dates">
         <div class="row">
-          <div class="col-md-2">
-            <dl>
-              <dt>{{key | date : 'd' }}</dt>
-              <dd>{{key | date : 'MMM y' }}</dd>
-              <dd class="icon"><span class="glyphicon glyphicon-calendar"></dd>
-            </dl>
+          <div class="col-md-12">
+            <h3>
+              <span class="date-number">{{key | date : 'd' }}</span>
+              <span class="date-extra">{{key | date : 'MMM y' }}</span>
+            </h3>
           </div>
+        </div>
+        <div class="row">
           <!--
           <div class="col-md-2">
             <dl>
@@ -44,7 +45,7 @@
             </dl>
           </div>
           -->
-          <div class="col-md-6 col-md-offset-1">
+          <div class="col-md-6">
             <div ng-repeat="item in items" class="measurements">
               <div class="measurement">
                 <div class="row">
